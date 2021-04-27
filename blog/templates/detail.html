@@ -1,0 +1,55 @@
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        div {
+            text-align: center;
+            margin: 0 auto;
+        }
+        table{
+            text-align: center;
+            margin: 0 auto;
+            border: 1px black solid;
+            width: 600px;
+        }
+        th {
+            font-family: 'Song Myung', serif;
+            background-color:lightsteelblue;
+            color:white;
+            height: 100px;
+            font-size: 35px;
+        }
+        td{
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        tr, td, table{
+            padding: 5px;
+        }
+        #mainText {
+            background-color: lavenderblush;
+            text-align: left;
+        }
+    </style>
+</head>
+
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <table>
+        <tr>
+            <th colspan="2">{{recipePost.food_title}}</th>
+        </tr>
+        <tr>
+            <td>{{recipePost.nickname}}</td>
+            <td>{{recipePost.upload_date}}</td>
+        </tr>
+        <tr> 
+            <td colspan="2" id="mainText">{{recipePost.recipe | linebreaks }}</td>
+        </tr>
+    </table>
+    <a href="{%url 'edit' recipePost.id%}">edit</a>
+    <a href="{%url 'delete' recipePost.id%}">delete</a>
+</div>
+{% endblock %}

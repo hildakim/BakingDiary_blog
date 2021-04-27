@@ -55,7 +55,7 @@ ROOT_URLCONF = 'baking_diary.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['baking_diary/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

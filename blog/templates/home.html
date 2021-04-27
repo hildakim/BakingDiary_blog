@@ -1,0 +1,64 @@
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        div {
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            font-family: 'Song Myung', serif;
+            font-size: 50px;
+            background-color: lightgoldenrodyellow;
+            /* color:white; */
+            width: 600px;
+            margin: 15 auto;
+            border: 1px black solid;
+        }
+        table{
+            text-align: center;
+            margin: 10px auto;
+            border: 1px black solid;
+            width: 600px;
+        }
+        th {
+            font-family: 'Song Myung', serif;
+            background-color:lightsteelblue;
+            color:white;
+            width:200px;
+            height: 100px;
+            font-size: 35px;
+        }
+        td{
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        #mainText {
+            background-color: lavenderblush;
+        }
+    </style>
+</head>
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Recipe Blog</h1>
+<div>
+    <a href="{%url 'new'%}">write blog</a>
+</div>
+
+<div>
+    {% for post in allPost %}
+    <table>
+        <tr>
+            <th rowspan="2">{{post.food_title}}</th>
+            <td>{{post.nickname}}</td>
+        </tr>
+        <tr>
+            <td id="mainText">{{post.summary}}<a href = "{%url 'detail' post.id %}">...더보기</a></td>
+        </tr>
+    </table>
+    {% endfor %}
+</div>
+{% endblock %}
