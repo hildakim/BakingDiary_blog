@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Write Your recipe</h1>
+<h1>Write Your Baking Diary</h1>
 
 <form action="{%url 'create'%}" method="post">
     {%csrf_token%}
-    제목: <input type="text" name="title"><br>
-    작성자: <input type="text" name="writer"><br>
-    레시피: <textarea name="body" id="" cols="30" rows="10"></textarea><br>
+    제목: <input type="text" name="diary_title"><br>
+    작성자: <input type="text" name="diary_writer"><br>
+    일기: <textarea name="diary_body" id="" cols="30" rows="10"></textarea><br>
     <button type="submit"> submit </button>
 </form>
 

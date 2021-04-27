@@ -8,35 +8,35 @@ def home(request):
     return render(request, 'home.html', {'allPost': allPost})
 
 def detail(request, id):
-    recipePost = get_object_or_404(Blog, pk = id)
-    return render(request, 'detail.html', {'recipePost':recipePost})
+    diaryPost = get_object_or_404(Blog, pk = id)
+    return render(request, 'detail.html', {'diaryPost':diaryPost})
     
 def new(request):
     return render(request, 'new.html')
 
 def create(request):
-    new_blog = Blog()
-    new_blog.food_title = request.POST['title']
-    new_blog.nickname = request.POST['writer']
-    new_blog.recipe = request.POST['body']
-    new_blog.upload_date = timezone.now()
-    new_blog.save()
-    return redirect('detail', new_blog.id)
+    new_diary = Blog()
+    new_diary.diary_title = request.POST['diary_title']
+    new_diary.nickname = request.POST['diary_writer']
+    new_diary.diary_body = request.POST['diary_body']
+    new_diary.upload_date = timezone.now()
+    new_diary.save()
+    return redirect('detail', new_diary.id)
 
 def edit(request, id):
-    edit_blog = Blog.objects.get(id = id)
-    return render(request, 'edit.html', {'blog':edit_blog})
+    edit_diary = Blog.objects.get(id = id)
+    return render(request, 'edit.html', {'diary':edit_diary})
 
 def update(request, id):
-    update_blog = Blog.objects.get(id = id)
-    update_blog.food_title = request.POST['title']
-    update_blog.nickname = request.POST['writer']
-    update_blog.recipe = request.POST['body']
-    update_blog.upload_date = timezone.now()
-    update_blog.save()
-    return redirect('detail', update_blog.id)
+    update_diary = Blog.objects.get(id = id)
+    update_diary.diary_title = request.POST['diary_title']
+    update_diary.nickname = request.POST['diary_writer']
+    update_diary.diary_body = request.POST['diary_body']
+    update_diary.upload_date = timezone.now()
+    update_diary.save()
+    return redirect('detail', update_diary.id)
 
 def delete(request, id):
-    delete_blog = Blog.objects.get(id = id)
-    delete_blog.delete()
+    delete_diary = Blog.objects.get(id = id)
+    delete_diary.delete()
     return redirect('home')
