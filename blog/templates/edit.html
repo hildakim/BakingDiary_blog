@@ -5,22 +5,18 @@
 
 <form action="{%url 'update' diary.id %}" method="post">
     {%csrf_token%}
-    <!-- 제목: <input type="text" name="diary_title" value="{{blog.diary_title}}"><br>
-    작성자: <input type="text" name="diary_writer" value="{{blog.nickname}}"><br>
-    일기: <textarea name="diary_body" cols="30" rows="10">{{blog.diary_body}}</textarea><br>
-    <button type="submit"> submit </button> -->
     <table>
         <tr>
-            <td><label for="title">제목:</label></td>
+            <td><label for="title">제목</label></td>
             <td><input type="text" name="diary_title" id="title" value="{{diary.diary_title}}"></td>
         </tr>
         <tr>
-            <td><label for="writer">작성자:</label></td>
+            <td><label for="writer">작성자</label></td>
             <td><input type="text" name="diary_writer" id="writer" value="{{diary.nickname}}"></td>
         </tr>
         <tr>
             <td><label for="body">일기</label></td>
-            <td><textarea name="diary_body" id="body" cols="30" rows="10">{{diary.diary_body}}</textarea></td>
+            <td><textarea name="diary_body" id="body" cols="50" rows="10">{{diary.diary_body}}</textarea></td>
         </tr>
     </table>
     <button type="submit"> submit </button>

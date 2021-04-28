@@ -2,9 +2,6 @@
 
 {% block content %}
 <h1>Baking Diary</h1>
-<div>
-    <a href="{%url 'new'%}">write diary</a>
-</div>
 
 <div>
     {% for post in allPost %}
@@ -22,4 +19,8 @@
     </table>
     {% endfor %}
 </div>
+<div>
+    <a href="{%url 'new'%}" class="white_box">write diary</a>
+</div>
+
 {% endblock %}
